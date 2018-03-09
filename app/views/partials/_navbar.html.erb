@@ -1,0 +1,17 @@
+
+
+<nav class="navbar navbar-default ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="<%= users_path %>">Dojo Secrets</a>
+      <% if current_user %>
+        <a href="<%= session_path current_user%>" data-method='delete'>Logout</a>
+        <a href="<%= secrets_path %>">View All Secrets</a>
+        <a href="<%= user_path current_user %>">Dashboard</a>
+      <% else %>
+        <a href='<%= new_session_path %>'>Login</a>
+        <a href='<%= new_user_path %>'>Register</a>
+      <% end %>
+    </div>
+  </div>
+</nav>

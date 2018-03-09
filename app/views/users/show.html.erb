@@ -1,4 +1,3 @@
-<br><a href="<%= secrets_path %>"><button>View All Secrets</button></a>
 <h2><%= @user.name %>'s Information</h2>
 <p><%= @user.email %></p>
 <a href="<%= edit_user_path @user %>">Edit Profile</a><br><br>
@@ -6,10 +5,13 @@
 <form action="<%= secrets_path %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-  <label>Content</label>
-  <input type="text" name="content">
+  <label>Content</label><br />
+  <!-- <input type="text" name="content"> -->
+  <textarea name="content" rows="4" cols="40"
+            placeholder="What's your secret?">
+  </textarea><br>
 
-  <input type="submit" name="submit" value="Create Secret">
+  <input class='btn btn-primary' type="submit" name="submit" value="Create Secret">
 </form>
 
 <h3>My secrets</h3>

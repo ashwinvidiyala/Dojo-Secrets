@@ -1,21 +1,13 @@
 Rails.application.routes.draw do
-  # get 'likes/create'
-  #
-  # get 'likes/destroy'
-  #
-  # get 'secrets/index'
+  root 'users#index'
 
-  # get 'users/new'
-  #
-  # get 'users/show'
-  #
-  # get 'users/edit'
-  #
-  # get 'sessions/new'
   resources :sessions, only: [:new, :create, :destroy]
+
   resources :users
-  resources :secrets, only: [:index, :create, :show, :destroy]
-  resources :likes, only: [:create, :destroy]
+
+  resources :secrets,  only: [:index, :create, :show, :destroy]
+
+  resources :likes,    only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

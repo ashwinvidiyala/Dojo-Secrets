@@ -7,7 +7,7 @@ class SecretsController < ApplicationController
     secret = Secret.create(content: params[:content], user: current_user)
     unless secret.valid?
       flash[:errors] = secret.errors.full_messages
-      return redirect_to user_path user
+      return redirect_to user_path current_user
     end
     return redirect_to user_path current_user
   end
@@ -18,4 +18,5 @@ class SecretsController < ApplicationController
     secret.destroy if user == current_user
     return redirect_to user_path user
   end
+
 end
